@@ -22,7 +22,13 @@ const app = express();
 
 // Security Middleware
 app.use(helmet());
-app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173', credentials: true }));
+app.use(cors({
+  origin: [
+    'https://subscription-box-e-commerce-platfor.vercel.app',
+    'http://localhost:5173'
+  ],
+  credentials: true
+}));
 
 // Rate Limiter
 const limiter = rateLimit({
